@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&family=Reggae+One&display=swap");
+
+:root {
+  --bg-01: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  --bg-02: linear-gradient(
+    65.9deg,
+    rgba(85, 228, 224, 1) 5.5%,
+    rgba(75, 68, 224, 0.74) 54.2%,
+    rgba(64, 198, 238, 1) 55.2%,
+    rgba(177, 36, 224, 1) 98.4%
+  );
+  --bg-03: linear-gradient(
+    76.3deg,
+    rgba(44, 62, 78, 1) 12.6%,
+    rgba(69, 103, 131, 1) 82.8%
+  );
+  --font-01: "Reggae One", cursive;
+  --font-02: "Mountains of Christmas", cursive;
+}
+body {
+  margin: 0;
+  background: var(--bg-01);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  padding: 10px;
+}
+.title {
+  text-align: center;
+  font-family: var(--font-02);
+}
+.game-board {
+  width: 600px;
+  height: 200px;
+  border: 1px solid black;
+  margin: auto;
+  overflow: hidden;
+  /* background-image: var(--bg-03); */
+  background-color: white;
+  background-size: 250%;
+  background-position: bottom left;
+  animation: bg 5s infinite alternate;
+}
+.status {
+  max-width: 600px;
+  border: 1px solid #888;
+  margin: 10px auto;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #888;
+  font-family: var(--font-01);
+  color: #fff;
+}
+#dino {
+  width: 50px;
+  height: 50px;
+  background-image: url(./img/run.gif);
+  background-size: 50px 50px;
+  position: relative;
+  top: 150px;
+  z-index: 90;
+  /* left: ; */
+}
+#caktus {
+  width: 20px;
+  height: 40px;
+  position: relative;
+  top: 110px;
+  left: 580px;
+
+  background-image: url(./img/log.png);
+  background-size: 20px 40px;
+}
+.cloud-01 {
+  width: 100px;
+  height: 60px;
+  position: relative;
+  top: -60px;
+  background-image: url(./img/cloud.png);
+  background-size: cover;
+  animation: cloud 20s infinite linear;
+}
+.cloud-02 {
+  width: 100px;
+  height: 60px;
+  position: relative;
+  top: -66px;
+  background-image: url(./img/cloud.png);
+  background-size: cover;
+  animation: cloud 15s infinite linear;
+}
+.jump {
+  background-image: url(./img/jump.png);
+  animation: jump 0.3s linear;
+}
+.block {
+  animation: block 1s infinite linear;
+}
+
+@keyframes bg {
+  0% {
+    background-position: bottom left;
+  }
+  100% {
+    background-position: bottom right;
+  }
+}
+@keyframes jump {
+  0% {
+    top: 150px;
+  }
+  25% {
+    top: 130px;
+  }
+  50% {
+    top: 30px;
+  }
+  75% {
+    top: 130px;
+  }
+  100% {
+    top: 150px;
+  }
+}
+@keyframes block {
+  0% {
+    left: 580px;
+  }
+  100% {
+    left: -10px;
+  }
+}
+@keyframes cloud {
+  0% {
+    left: 580px;
+  }
+  100% {
+    left: -100px;
+  }
+}

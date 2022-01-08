@@ -1,0 +1,142 @@
+/*
+style List:
+1. style umum
+2. style papan permainan
+
+*/
+
+/* style Umum */
+@import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&family=Reggae+One&display=swap");
+:root {
+  --font-01: "Reggae One", cursive;
+  --font-02: "Mountains of Christmas", cursive;
+  --bg-01: linear-gradient(
+    80deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 20%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+* {
+  box-sizing: border-box;
+  font-family: var(--font-01);
+}
+body {
+  background-color: grey;
+  text-align: center;
+  background-image: var(--bg-01);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 400%;
+  height: 100vh;
+  animation: bg 5s infinite alternate;
+}
+.title {
+  margin: 20px;
+  font-family: var(--font-02);
+  font-size: 2em;
+  color: transparent;
+  position: relative;
+  background-image: linear-gradient(0deg, red 30%, rgb(130, 223, 37) 60%);
+  background-clip: text;
+}
+.btn {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+.btn-reset {
+  background-color: rgb(28, 28, 214);
+  color: #fff;
+  margin-top: 10px;
+}
+.subtext {
+  color: #fff;
+  background-color: #888;
+  font-size: 0.75rem;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  /* grid-template-columns: repeat(2, auto); */
+  justify-content: center;
+  gap: 30px;
+  max-width: 400px;
+  text-align: left;
+}
+
+/* style papan permainan */
+.board {
+  display: inline-grid;
+  padding: 10px;
+  grid-template-columns: repeat(var(--size), 30px);
+  grid-template-rows: repeat(var(--size), 30px);
+  gap: 1px;
+  background-color: rgb(145, 49, 49);
+  position: relative;
+}
+
+.board > * {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border: 2px solid #888;
+  user-select: none;
+}
+.board > [data-status="hidden"] {
+  background-color: rgb(33, 204, 235);
+  cursor: pointer;
+}
+.board > [data-status="mine"] {
+  background-color: red;
+  background-image: url(./img/bom.png);
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  animation: boom 1s infinite;
+}
+.board > [data-status="number"] {
+  background-color: none;
+}
+.board > [data-status="marked"] {
+  background-color: yellow;
+}
+.start {
+  display: none;
+  position: absolute;
+  background-color: beige;
+  background-image: url(./img/bom.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  animation: boom 1s infinite;
+}
+.btn-start {
+  background-color: rgb(130, 223, 37);
+}
+.show {
+  display: flex;
+}
+@keyframes boom {
+  0%,
+  100% {
+    background-size: 50%;
+  }
+  50% {
+    background-size: 60%;
+  }
+}
+@keyframes bg {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}

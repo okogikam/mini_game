@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="judul">Puzzel Game</h1>
+    <div class="grid">
+      <div class="game-control">
+        <button class="btn btn-restart">Restart</button>
+        <button class="btn btn-priview">Priview</button>
+      </div>
+      <div class="board">
+        <div class="start">
+          <button class="btn btn-start">Start</button>
+        </div>
+      </div>
+      <div class="board-score">
+        <h2 class="judul">Your Score</h2>
+        <p>Move : <span id="move">0</span></p>
+        <p>Time : <span id="time">0s</span></p>
+      </div>
+      <!-- <div class="board2" dropzone="move"></div> -->
+    </div>
+    <aside>
+      <div id="priview">
+        <button class="btn btn-close">Close X</button>
+        <img src="./img/bg.jpg" alt="" />
+      </div>
+    </aside>
+    <script src="script.js" type="module"></script>
+    <script src="control.js"></script>
+  </body>
+</html>

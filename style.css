@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+body {
+  background-image: linear-gradient(
+    -45deg,
+    rgb(80, 80, 153),
+    rgb(145, 187, 31),
+    #fff
+  );
+  background-size: 400%;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: bgchange 5s infinite alternate;
+  /* transition: bgchange 500ms linear; */
+}
+img {
+  max-width: 100%;
+}
+.card {
+  width: 400px;
+  margin: 30px auto;
+  /* background-color: #fff; */
+  text-align: center;
+}
+.card-body {
+  /* background-color: #fff; */
+  /* padding: 10px; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.card-body a {
+  background-color: #fff;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: 400;
+}
+#google:hover .card-img {
+  /* content: ""; */
+  /* position: ; */
+  /* display: flex;
+  width: 100px;
+  height: 50px;
+  margin: auto; */
+  /* background-image: url(./google/img/dinosaurus.PNG); */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  animation: zoom 1s ease infinite;
+}
+
+#pic-match img {
+  width: 100px;
+}
+@keyframes zoom {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20%);
+  }
+}
+@keyframes bgchange {
+  0% {
+    background-position: top left;
+  }
+  50% {
+    background-position: center center;
+  }
+  100% {
+    background-position: bottom right;
+  }
+}

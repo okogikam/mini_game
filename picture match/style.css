@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&family=Reggae+One&display=swap");
+
+:root {
+  --bg-01: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  --bg-02: linear-gradient(
+    65.9deg,
+    rgba(85, 228, 224, 1) 5.5%,
+    rgba(75, 68, 224, 0.74) 54.2%,
+    rgba(64, 198, 238, 1) 55.2%,
+    rgba(177, 36, 224, 1) 98.4%
+  );
+  --bg-03: linear-gradient(
+    76.3deg,
+    rgba(44, 62, 78, 1) 12.6%,
+    rgba(69, 103, 131, 1) 82.8%
+  );
+  --font-01: "Reggae One", cursive;
+  --font-02: "Mountains of Christmas", cursive;
+}
+* {
+  box-sizing: border-box;
+  font-family: var(--font-01);
+}
+body {
+  margin: 0;
+  padding: 10px;
+  max-width: 100%;
+  background: var(--bg-01);
+  background-repeat: no-repeat;
+  background-size: 400%;
+  text-align: center;
+  animation: bg 6s infinite alternate;
+}
+@keyframes bg {
+  0% {
+    background-position: top left;
+  }
+  100% {
+    background-position: bottom right;
+  }
+}
+.page-title {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  background-image: var(--bg-03);
+  /* background-repeat: no-repeat; */
+  background-size: 300%;
+  /* background-clip: text; */
+  animation: bg 6s infinite alternate;
+  font-family: var(--font-02);
+}
+.info-container {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-between;
+}
+.game-board {
+  max-width: 600px;
+  /* margin: auto; */
+}
+.game-info {
+  color: rgb(24, 23, 23);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.game-board {
+  display: grid;
+  /* max-width: 100%; */
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 5px;
+  margin: auto;
+  justify-content: center;
+}
+@media screen and (max-width: 540px) {
+  .game-board {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+.overlay-text {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  color: blanchedalmond;
+  cursor: pointer;
+}
+.overlay-text.visible {
+  display: flex;
+  padding: 10px;
+  background-color: rgba(44, 62, 78, 0.75);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.card {
+  /* background-color: black; */
+  height: 175px;
+  width: 125px;
+  position: relative;
+  cursor: pointer;
+}
+.card img {
+  max-width: 100%;
+}
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  backface-visibility: hidden;
+  border: 3px solid;
+  border-radius: 12px;
+  transition: transform 500ms ease-in-out;
+}
+.card.visible .card-back,
+.card.match .card-back {
+  transform: rotateY(-180deg);
+}
+.card.visible .card-front,
+.card.match .card-front {
+  transform: rotateY(0);
+}
+.card-front {
+  transform: rotateY(180deg);
+}
+.card-back {
+  background: var(--bg-02);
+  border-color: #797876;
+}
+/* .card:hover .card-back {
+  transform: rotateY(-180deg);
+}
+.card:hover .card-front {
+  transform: rotateY(0);
+} */
+.card.match .card-face img {
+  animation: zoom 1s linear;
+}
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
